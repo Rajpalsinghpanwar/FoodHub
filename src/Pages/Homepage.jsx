@@ -101,6 +101,7 @@ function Homepage() {
           </span>
           </div>
           <div>
+          {/* {my name is vinod} */}
           {foodoptions.map((item, index) => {
           
           return <FoodOptions key={index} item={item} />;
