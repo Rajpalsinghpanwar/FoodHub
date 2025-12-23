@@ -29,7 +29,7 @@ function Hero() {
     },
   ];
   return (
-    <div className="h-full w-[full] bg-[#FF5200] flex flex-col items-center justify-between relative  mx-auto">
+    <div className="min-h-full w-full bg-[#FF5200] flex flex-col items-center justify-between relative p-5  mx-auto">
       <img className="w-[14%] h-3/5 absolute top-15 left-0 object-cover" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/testing/seo-home/Veggies_new.png" alt="" />
        <img className="w-[14%] h-3/5 absolute top-15 right-0 object-cover" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/testing/seo-home/Sushi_replace.png" alt="" />
     <div className=" h-full w-[95%] mx-auto flex flex-col items-center justify-center  ">
