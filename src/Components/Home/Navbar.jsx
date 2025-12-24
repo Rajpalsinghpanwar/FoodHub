@@ -1,8 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router";
 import { MdArrowOutward } from "react-icons/md";
+import { SiPandas } from "react-icons/si";
 
-function Navbar() {
+function Navbar({setSignInClicked}) {
   return (
     <nav className="w-full bg-[#FF5200] shadow-md">
       <div className=" mx-auto px-6 py-4 flex items-center justify-around">
@@ -28,12 +29,9 @@ function Navbar() {
             Get the App <MdArrowOutward />
           </NavLink>
 
-          <NavLink
-            to="/signin"
-            className="bg-black px-3 py-3 flex items-center rounded-xl "
-          >
+          <span onClick={()=>setSignInClicked(true)} className="bg-black px-3 py-3 flex items-center rounded-xl cursor-pointer ">
             Sign In
-          </NavLink>
+          </span>
         </div>
       </div>
     </nav>

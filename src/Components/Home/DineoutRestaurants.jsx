@@ -5,7 +5,7 @@ import { IoIosStar } from "react-icons/io";
 function Dineout({item}) {
   return (
     
-<NavLink to="/dineout" className="min-w-[35%] h-1/2 flex flex-col justify-between items-center gap-1 border border-gray-200 rounded-2xl">
+<NavLink to="/Restaurant" className="min-w-[35%] h-1/2 flex flex-col justify-between items-center gap-1 border border-gray-200 rounded-2xl">
       <div className="w-full h-1/2 relative "> 
           <img src={item.image} alt="restaurant" className="w-full h-full rounded-xl opacity-90"/>
         

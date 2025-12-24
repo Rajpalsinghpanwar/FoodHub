@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Navbar from "../Components/Home/Navbar";
 import Hero from "../Components/Home/Hero";
 import FoodOptions from "../Components/Home/FoodOptions";
@@ -8,25 +8,24 @@ import Groceries from "../Components/Home/Groceries";
 import DineoutRestaurants from "../Components/Home/DineoutRestaurants";
 
 import Footer from "../Components/Home/Footer";
-import Signin from "../Components/Auth/Signin";
-import Signup from "../Components/Auth/Signup";
-import AuthLayout from "../Components/Auth/AuthLayout";
-function Homepage() {
-  const indianCities = [
-  "Mumbai",
-  "Delhi",
-  "Bengaluru",
-  "Chennai",
-  "Kolkata",
-  "Hyderabad",
-  "Pune",
-  "Ahmedabad",
-  "Jaipur",
-  "Chandigarh",
-  "Amritsar",
-  "Patna"
 
-];
+import AuthLayout from "../Components/Auth/AuthLayout";
+function Home() {
+  const [signInclicked, setSignInClicked] = useState(false);
+  const indianCities = [
+    "Mumbai",
+    "Delhi",
+    "Bengaluru",
+    "Chennai",
+    "Kolkata",
+    "Hyderabad",
+    "Pune",
+    "Ahmedabad",
+    "Jaipur",
+    "Chandigarh",
+    "Amritsar",
+    "Patna",
+  ];
 
   const Dineout = [
     {
@@ -384,8 +383,10 @@ function Homepage() {
     ],
   ];
   return (
-    <div>
-      <Navbar />
+    <div className="relative">
+      <Navbar setSignInClicked={setSignInClicked} />
+      {signInclicked && <AuthLayout setSignInClicked={setSignInClicked} />}
+
       <Hero />
 
       <div className="flex w-[75%] h-[50%] flex-col mx-auto mt-30 ">
@@ -455,30 +456,39 @@ function Homepage() {
           alt=""
         />
       </div>
-      <div  className="h-full w-[70%] flex flex-col gap-3 mx-auto mt-15 ">
-        
-          <span className="text-2xl font-bold ">Cities with food delivery</span>
-      
+      <div className="h-full w-[70%] flex flex-col gap-3 mx-auto mt-15 ">
+        <span className="text-2xl font-bold ">Cities with food delivery</span>
+
         <div className="  flex justify-between flex-wrap items-center gap-2 font-bold ">
           {indianCities.map((city) => {
-            return  <span className="border rounded-xl p-3 px-5 text-center"> Order food online in <br /> {city}</span>
+            return (
+              <span className="border rounded-xl p-3 px-5 text-center">
+                {" "}
+                Order food online in <br /> {city}
+              </span>
+            );
           })}
         </div>
       </div>
-      <div  className="h-full w-[70%] flex flex-col gap-3 mx-auto mt-15 ">
-        
-          <span className="text-2xl font-bold ">Cities with grocery delivery</span>
-      
+      <div className="h-full w-[70%] flex flex-col gap-3 mx-auto mt-15 ">
+        <span className="text-2xl font-bold ">
+          Cities with grocery delivery
+        </span>
+
         <div className="  flex justify-between flex-wrap items-center gap-2 font-bold ">
           {indianCities.map((city) => {
-            return  <span className="border rounded-xl p-3 px-5 text-center"> Order grocery online in <br /> {city}</span>
+            return (
+              <span className="border rounded-xl p-3 px-5 text-center">
+                {" "}
+                Order grocery online in <br /> {city}
+              </span>
+            );
           })}
         </div>
       </div>
       <Footer />
-      <AuthLayout/>
     </div>
   );
 }
 
-export default Homepage;
+export default Home;
