@@ -5,6 +5,9 @@ import { IoCallOutline, IoLocationOutline } from "react-icons/io5";
 import { MdOutlineTableRestaurant } from "react-icons/md";
 import { IoChevronDown } from "react-icons/io5";
 import { IoArrowBack, IoArrowForward } from "react-icons/io5";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { FiClock } from "react-icons/fi";
+import { MdLocationOn } from "react-icons/md";
 
 function Restaurant() {
   return (
@@ -87,7 +90,7 @@ function Restaurant() {
           </button>
         </div>
       </div>
-      
+
       <div className="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* LEFT SECTION */}
         <div className="lg:col-span-2 space-y-10">
@@ -217,6 +220,88 @@ function Restaurant() {
               alt="Play Store"
               className="h-10"
             />
+          </div>
+        </div>
+      </div>
+      <div className="max-w-[920px] px-11 ">
+        <div className="flex items-center justify-between mb-6  ">
+          <h2 className="text-2xl font-bold">Food</h2>
+          <div className="flex gap-2">
+            <button className="p-2 rounded-full bg-gray-200 hover:bg-gray-300">
+              <ChevronLeft size={18} />
+            </button>
+            <button className="p-2 rounded-full bg-gray-200 hover:bg-gray-300">
+              <ChevronRight size={18} />
+            </button>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className=" overflow-hidden">
+            <img
+              src="https://dineout-media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/DINEOUT_ALL_RESTAURANTS/IMAGES/RESTAURANT_IMAGE_SERVICE/2025/12/14/4277e8d1-97b7-41ae-b2e6-7a7f8bdf542b_image189718a7b83dd446a8f73116d54bad498.JPG"
+              alt="Food Menu 1"
+              className="w-[300px] h-[400px] object-cover"
+            />
+          </div>
+          <div className=" overflow-hidden">
+            <img
+              src="https://dineout-media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/DINEOUT_ALL_RESTAURANTS/IMAGES/RESTAURANT_IMAGE_SERVICE/2025/12/14/0e6ec5c5-7eba-498c-881a-ed22c7f1aa5b_image941c56449929a4f6eb1eafd0b5c3b8bd6.JPG"
+              alt="Food Menu 2"
+              className="w-[300px] h-[400px] object-cover"
+            />
+          </div>
+        </div>
+        <div className="mt-6">
+          <h3 className="text-lg font-semibold">Cuisines</h3>
+          <p className="text-gray-600 mt-1">Multi Cuisine, World Cuisine</p>
+        </div>
+
+        {/* Divider */}
+        <div className="mt-6 border-t " />
+      </div>
+      <div className="max-w-3xl w-full bg-white">
+        {/* Location */}
+        <div className="mb-8 max-w-[920px] px-11 ">
+          <h2 className="text-xl font-bold mb-3 mt-10">Location</h2>
+          <div className="flex items-start gap-3 text-gray-700">
+            <MdLocationOn className="mt-1 text-gray-500" size={20} />
+            <div>
+              <p className="font-medium">
+                6th Floor, Sda Corporate, 166, Mr 10 Road, Nipania, Indore,
+                Madhya Pradesh
+              </p>
+              <p className="text-sm text-gray-500">10.4 km away</p>
+              <button className="mt-1 text-orange-500 font-semibold text-sm hover:underline">
+                View on Maps
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className="mb-8 max-w-[920px] px-11">
+          <h2 className="text-xl font-bold mb-3">Timings</h2>
+          <div className="flex items-center gap-3 text-gray-700">
+            <FiClock className="text-gray-500" size={18} />
+            <div>
+              <p className="font-medium">OPEN TILL 11:30PM</p>
+              <button className="text-orange-500 font-semibold text-sm hover:underline">
+                See all timings
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <hr className="w-[830px] mx-11 " />
+        <div className=" max-w-[920px] px-11">
+          <h2 className="text-xl font-bold mb-4 mt-10">Facilities</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-12 text-gray-700 ">
+            <ul className="list-disc list-inside space-y-2">
+              <li>Alcohol served</li>
+              <li>Parking available</li>
+            </ul>
+            <ul className="list-disc list-inside space-y-2">
+              <li>Reservation available</li>
+              <li>SwiggyPay accepted</li>
+            </ul>
           </div>
         </div>
       </div>

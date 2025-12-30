@@ -1,6 +1,7 @@
 import React from 'react'
 import CollectionNavbar from '../Components/Collection/CollectionNavbar';
 import { AdjustmentsHorizontalIcon,ChevronDownIcon } from '@heroicons/react/16/solid';
+import { NavLink } from 'react-router';
 
 
 
@@ -97,7 +98,7 @@ function Collection() {
   },
 ];
   return (
-    <>
+    <div className='h-screen w-screen'>
     <CollectionNavbar/>
      <div className="max-w-7xl mx-auto px-4 py-6">
       {/* Heading */}
@@ -129,7 +130,7 @@ function Collection() {
       </div>
         <div className="  grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-6 mx-auto w-[93%] ">
         {restaurants.map((item) => (
-          <div
+          <NavLink to={`/collection/${item.id}`}
             key={item.id}
             className="rounded-xl overflow-hidden hover:scale-[1.02] transition-transform cursor-pointer  "
           >
@@ -163,10 +164,10 @@ function Collection() {
               </p>
               <p className="text-gray-500 text-sm">{item.location}</p>
             </div>
-          </div>
+          </NavLink>
         ))}
       </div>
-    </>
+    </div>
   )
 }
 

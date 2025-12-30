@@ -3,6 +3,7 @@ import React from "react";
 import { IoLocationOutline, IoChevronDown } from "react-icons/io5";
 import { CiSearch } from "react-icons/ci";
 import { FaUserCircle } from "react-icons/fa";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 function RestaurantNavbar() {
   return (

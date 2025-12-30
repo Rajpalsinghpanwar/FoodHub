@@ -47,17 +47,17 @@ function Hero() {
           />
           <RiArrowDropDownLine className="text-3xl" />
         </div>
-        <NavLink
+        <div
           to="/search"
           className=" w-2/5 flex justify-between  items-center bg-white p-4  rounded-xl "
         >
           <input
-            className="w-4/5"
+            className="w-4/5 "
             type="text"
             placeholder=" Search for restaurant, item or more "
           />
           <CiSearch />
-        </NavLink>
+        </div>
       </div>
       <div className="flex w-[80%] h-[30%] justify-around items-center mt-15 ">
         

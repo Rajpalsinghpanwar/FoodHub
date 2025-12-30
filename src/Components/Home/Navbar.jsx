@@ -22,7 +22,7 @@ function Navbar({setSignInClicked}) {
           </NavLink>
           <NavLink to="/partner">Partner with Us</NavLink>
           <NavLink
-            to="/app"
+            to="/#app"
             className="border border-gray-300 px-3 py-3 flex items-center rounded-xl gap-2 "
           >
             {" "}
