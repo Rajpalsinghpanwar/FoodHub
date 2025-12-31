@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { IoLocationOutline } from "react-icons/io5";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { CiSearch } from "react-icons/ci";
 import { NavLink } from "react-router";
 import Service from "./Service";
+import { FaLocationArrow } from "react-icons/fa";
 function Hero() {
   const servicelist = [
     {
@@ -28,49 +29,65 @@ function Hero() {
         "https://i.pinimg.com/1200x/db/86/cf/db86cfd21a8d315a18b341febf282250.jpg",
     },
   ];
+
+  const [location, setLocation] = useState("");
+  const [dropdownLocation, setDropdownLocation] = useState("off");
+
   return (
     <div className="min-h-full w-full bg-[#FF5200] flex flex-col items-center justify-between relative p-5  mx-auto">
-      <img className="w-[14%] h-3/5 absolute top-15 left-0 object-cover" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/testing/seo-home/Veggies_new.png" alt="" />
-       <img className="w-[14%] h-3/5 absolute top-15 right-0 object-cover" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/testing/seo-home/Sushi_replace.png" alt="" />
-    <div className=" h-full w-[95%] mx-auto flex flex-col items-center justify-center  ">
-
-      <span className="text-5xl font-bold text-center mt-14 text-white  ">
-        Order food & groceries. Discover <br /> best restaurants. Swiggy it!
-      </span>
-      <div className=" w-full flex justify-center font-bold items-center mt-10 gap-4 ">
-        <div className="flex justify-between items-center bg-white p-3.5 rounded-xl gap-3">
-          <IoLocationOutline className="text-orange-600" />
-          <input
-            className=""
-            type="text"
-            placeholder="Enter your delivery location"
-          />
-          <RiArrowDropDownLine className="text-3xl" />
+      <img
+        className="w-[14%] h-3/5 absolute top-15 left-0 object-cover"
+        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/testing/seo-home/Veggies_new.png"
+        alt=""
+      />
+      <img
+        className="w-[14%] h-3/5 absolute top-15 right-0 object-cover"
+        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/testing/seo-home/Sushi_replace.png"
+        alt=""
+      />
+      <div className=" h-full w-[95%] mx-auto flex flex-col items-center justify-center  ">
+        <span className="text-5xl font-bold text-center mt-14 text-white  ">
+          Order food & groceries. Discover <br /> best restaurants. Foodhub it!
+        </span>
+        <div className=" w-full flex justify-center font-bold items-center mt-10 gap-4 relative ">
+          <div className="flex justify-between items-center bg-white p-3.5 rounded-xl gap-3">
+            <IoLocationOutline className="text-orange-600" />
+            <input
+              className=" outline-none"
+              type="text"
+              placeholder="Enter your delivery location"
+            />
+            <RiArrowDropDownLine
+              className="text-3xl"
+              onClick={() =>
+                setDropdownLocation(dropdownLocation === "on" ? "off" : "on")
+              }
+            />
+          </div>
+          <NavLink
+            to="/search"
+            className=" w-2/5 flex justify-between  items-center bg-white p-4  rounded-xl "
+          >
+            <input
+              className="w-4/5 outline-none "
+              type="text"
+              placeholder=" Search for restaurant, item or more "
+            />
+            <CiSearch />
+          </NavLink>
+          {dropdownLocation === "on" && (
+            <div className="w-[70%] mt-7 absolute top-15 p-8 bg-white rounded-2xl flex items-center gap-3 text-[#FF5200] font-bold text-[17px]">
+              <FaLocationArrow /> Use my current location{" "}
+            </div>
+          )}
         </div>
-        <div
-          to="/search"
-          className=" w-2/5 flex justify-between  items-center bg-white p-4  rounded-xl "
-        >
-          <input
-            className="w-4/5 "
-            type="text"
-            placeholder=" Search for restaurant, item or more "
-          />
-          <CiSearch />
+        <div className="flex w-[80%] h-[30%] justify-around items-center mt-15 ">
+          {servicelist.map((item, index) => {
+            return <Service key={index} item={item} />;
+          })}
         </div>
       </div>
-      <div className="flex w-[80%] h-[30%] justify-around items-center mt-15 ">
-        
-        {servicelist.map((item, index) => {
-          
-          return <Service key={index} item={item} />;
-        })}
-      </div>
-      
     </div>
-     
-    </div>
-   
   );
 }
 

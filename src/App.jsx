@@ -11,6 +11,7 @@ import AdminDashboard from "./Components/Dashboard/Admin/AdminDashboard";
 import DriverDashboard from "./Components/Dashboard/DriverDashboard/DriverDashboard";
 import SuperAdminDashboard from "./Components/Dashboard/SuperAdmin/SuperAdminDashboard";
 import UserDashboard from "./Components/Dashboard/UserDashboard/UserDashboard";
+import SearchFoodandRestaurent from "./Pages/SearchFoodandRestaurent";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path="/Instamart" element={<Instamart />} />
           <Route path="/Restaurant" element={<Restaurant />} />
           <Route path="/collection/:id" element={<SpecificCollection />} />
+          <Route path="/search" element={<SearchFoodandRestaurent />} />
           {/* Admin dashboard */}
           <Route path="/admin" element={<AdminDashboard/>} />
            {/* Driver dashboard */}

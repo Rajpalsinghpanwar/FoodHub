@@ -10,19 +10,14 @@ import {
   FaBars,
   FaChevronLeft,
 } from "react-icons/fa";
+import {SIDEBAR_CONFIG} from "../../../SidebarConfig"
 
 function DriverDashboard() {
-   const menuItems = [
-      { id: 1, name: "Dashboard-driver", icon: <FaThLarge /> },
-      { id: 2, name: "Orders", icon: <FaShoppingBag /> },
-      { id: 3, name: "Restaurants", icon: <FaStore /> },
-      { id: 4, name: "Finance", icon: <FaWallet /> },
-      { id: 5, name: "Logout", icon: <FaSignOutAlt /> },
-    ];
+   
   return (
     
         <div className='h-screen w-screen flex '>
-           <Sidebar data={menuItems}/>
+           <Sidebar data={SIDEBAR_CONFIG['DELIVERY']}/>
            <div className="h-full w-full ">
             <Header/>
            </div>
