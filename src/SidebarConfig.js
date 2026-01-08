@@ -24,23 +24,23 @@ export  const SIDEBAR_CONFIG = {
     {
       category: "Core Navigation",
       items: [
-        { name: "Dashboard", icon: LayoutDashboard, path: "/user/dashboard" }
+        { name: "Dashboard", icon: LayoutDashboard, path: "/user" }
       ]
     },
     {
       category: "Orders",
       items: [
-        { name: "My Cart", icon: Package, path: "/user/cart" },
-        { name: "My Orders", icon: Receipt, path: "/user/orders" },
-        { name: "Live Tracking", icon: Truck, path: "/user/tracking" },
-        { name: "Order History", icon: Receipt, path: "/user/history" }
+        { name: "My Cart", icon: Package, path: "/user/my-cart" },
+        { name: "My Orders", icon: Receipt, path: "/user/my-orders" },
+        { name: "Live Tracking", icon: Truck, path: "/user/live-tracking" },
+        { name: "Order History", icon: Receipt, path: "/user/userorder-history" }
       ]
     },
     {
       category: "Personalization",
       items: [
-        { name: "Favorites & Wishlist", icon: Heart },
-        { name: "Offers & Coupons", icon: Tag }
+        { name: "Favorites & Wishlist", icon: Heart, path:"/user/favorites-wishlist" },
+        { name: "Offers & Coupons", icon: Tag, path:"/user/offers-coupons" }
       ]
     },
     {
@@ -70,49 +70,49 @@ export  const SIDEBAR_CONFIG = {
   RESTAURANT: [
     {
       category: "Overview",
-      items: [{ name: "Dashboard", icon: LayoutDashboard }]
+      items: [{ name: "Dashboard", icon: LayoutDashboard, path:"/admin"}]
     },
     {
       category: "Restaurant Management",
       items: [
-        { name: "Restaurant Profile", icon: Store },
-        { name: "Verification Status", icon: ShieldCheck }
+        { name: "Restaurant Profile", icon: Store, path:"/admin/restaurant-profile" },
+        { name: "Verification Status", icon: ShieldCheck, path:"/admin/verification-status"}
       ]
     },
     {
       category: "Menu & Inventory",
       items: [
-        { name: "Menu Management", icon: Package },
-        { name: "Inventory Alerts", icon: Layers },
-        { name: "Categories & Add-ons", icon: Layers }
+        { name: "Menu Management", icon: Package, path:"/admin/menu-management"},
+        { name: "Inventory Alerts", icon: Layers, path:"/admin/inventory-alerts" },
+        { name: "Categories & Add-ons", icon: Layers, path:"/admin/categories-addons" }
       ]
     },
     {
       category: "Orders",
       items: [
-        { name: "Incoming Orders", icon: Receipt },
-        { name: "Active Orders", icon: Truck },
-        { name: "Order History", icon: Receipt }
+        { name: "Incoming Orders", icon: Receipt, path:"/admin/incoming-orders" },
+        { name: "Active Orders", icon: Truck, path:"/admin/active-orders" },
+        { name: "Order History", icon: Receipt, path:"/admin/order-history"}
       ]
     },
     {
       category: "Marketing",
       items: [
-        { name: "Offers & Discounts", icon: Tag }
+        { name: "Offers & Discounts", icon: Tag, path:"/admin/offers-discounts" }
       ]
     },
     {
       category: "Customer Interaction",
       items: [
-        { name: "Customer Reviews", icon: MessageSquare }
+        { name: "Customer Reviews", icon: MessageSquare, path:"/admin/customer-reviews" }
       ]
     },
     {
       category: "Account & Support",
       items: [
-        { name: "Profile Settings", icon: User },
-        { name: "Help & Support", icon: HelpCircle },
-        { name: "Logout", icon: LogOut }
+        { name: "Profile Settings", icon: User, path:"/admin/profile-setting" },
+        { name: "Help & Support", icon: HelpCircle, path:"/admin/help-support" },
+        { name: "Logout", icon: LogOut, path:"/admin/logout" }
       ]
     }
   ],
@@ -121,38 +121,38 @@ export  const SIDEBAR_CONFIG = {
     {
       category: "Main",
       items: [
-        { name: "Dashboard", icon: LayoutDashboard },
-        { name: "Availability Status", icon: Truck }
+        { name: "Dashboard", icon: LayoutDashboard, path:"/driver" },
+        { name: "Availability Status", icon: Truck, path:"/driver/availability-status" }
       ]
     },
     {
       category: "Deliveries",
       items: [
-        { name: "New Requests", icon: Package },
-        { name: "Active Deliveries", icon: Truck },
-        { name: "Delivery History", icon: Receipt }
+        { name: "New Requests", icon: Package, path:"/driver/new-requests" },
+        { name: "Active Deliveries", icon: Truck, path:"/driver/active-deliveries" },
+        { name: "Delivery History", icon: Receipt, path:"/driver/delivery-history" }
       ]
     },
     {
       category: "Earnings",
       items: [
-        { name: "Earnings Overview", icon: Wallet },
-        { name: "Incentives & Bonuses", icon: Tag },
-        { name: "Payment History", icon: CreditCard }
+        { name: "Earnings Overview", icon: Wallet , path:"/driver/earnings-overview"},
+        { name: "Incentives & Bonuses", icon: Tag, path:"/driver/incentive-bonus" },
+        { name: "Payment History", icon: CreditCard, path:"/driver/payment-history" }
       ]
     },
     {
       category: "Account",
       items: [
-        { name: "Profile & Documents", icon: User },
-        { name: "Vehicle Details", icon: Truck }
+        { name: "Profile & Documents", icon: User, path:"/driver/profile-documents" },
+        { name: "Vehicle Details", icon: Truck, path:"/driver/vehicle-details" }
       ]
     },
     {
       category: "Support",
       items: [
-        { name: "Help & Support", icon: HelpCircle },
-        { name: "Logout", icon: LogOut }
+        { name: "Help & Support", icon: HelpCircle, path:"/driver/help-support" },
+        { name: "Logout", icon: LogOut, path:"/driver/logout" }
       ]
     }
   ],

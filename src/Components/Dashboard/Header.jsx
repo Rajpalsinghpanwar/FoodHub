@@ -19,14 +19,14 @@ export default function Header() {
       {/* Right: Icons & Profile */}
       <div className="flex items-center gap-4 ml-6">
         <button className="p-2 rounded-full hover:bg-gray-100">
-          <HelpCircle className="text-gray-600" size={20} />
+          <HelpCircle className="text-black" size={20} />
         </button>
         <button className="p-2 rounded-full hover:bg-gray-100 relative">
-          <Bell className="text-gray-600" size={20} />
+          <Bell className="text-black" size={20} />
           <span className="absolute top-1 right-1 h-2 w-2 bg-[#FF5200] rounded-full"></span>
         </button>
         <button className="p-2 rounded-full hover:bg-gray-100">
-          <Settings className="text-gray-600" size={20} />
+          <Settings className="text-black" size={20} />
         </button>
 
         {/* Profile */}
@@ -36,8 +36,8 @@ export default function Header() {
             alt="profile"
             className="h-8 w-8 rounded-full"
           />
-          <span className="text-sm font-medium text-gray-700 hidden sm:block">James</span>
-          <ChevronDown size={16} className="text-gray-500" />
+          <span className="text-sm font-medium text-black hidden sm:block">James</span>
+          <ChevronDown size={16} className="text-black" />
         </div>
       </div>
     </header>

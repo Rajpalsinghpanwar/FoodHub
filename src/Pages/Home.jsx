@@ -506,9 +506,9 @@ function Home() {
         <span className="text-2xl font-bold ">Cities with food delivery</span>
 
         <div className="  flex justify-between flex-wrap items-center gap-2 font-bold ">
-          {indianCities.map((city) => {
+          {indianCities.map((city,index) => {
             return (
-              <span className="border rounded-xl p-3 px-5 text-center">
+              <span  className="border rounded-xl p-3 px-5 text-center">
                 {" "}
                 Order food online in <br /> {city}
               </span>
