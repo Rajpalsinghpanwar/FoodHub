@@ -3,7 +3,7 @@ import { Search, Bell, Settings, HelpCircle, ChevronDown } from "lucide-react";
 
 export default function Header() {
   return (
-    <header className="w-full h-16 bg-white border-b flex items-center justify-between px-6">
+    <header className="w-full h-16 bg-white border-b flex items-center justify-between px-6 shrink-0">
       {/* Left: Search */}
       <div className="flex items-center w-full max-w-md">
         <div className="relative w-full">

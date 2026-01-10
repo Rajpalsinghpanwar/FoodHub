@@ -42,6 +42,22 @@ import MyOrders from "./Components/Dashboard/UserDashboard/MyOrders";
 import LiveTracking from "./Components/Dashboard/UserDashboard/LiveTracking";
 import UserOrderHistory from "./Components/Dashboard/UserDashboard/UserOrderHistory";
 import FavoritesWishlist from "./Components/Dashboard/UserDashboard/FavoritesWishlist";
+import OffersCoupons from "./Components/Dashboard/UserDashboard/OffersCoupons";
+import Profile from "./Components/Dashboard/UserDashboard/Profile";
+import SavedAddresses from "./Components/Dashboard/UserDashboard/SavedAddresses";
+import PaymentMethods from "./Components/Dashboard/UserDashboard/PaymentMethods";
+import RatingReviews from "./Components/Dashboard/UserDashboard/RatingReviews";
+import ReferEarn from "./Components/Dashboard/UserDashboard/ReferEarn";
+import UserHelpSupport from "./Components/Dashboard/UserDashboard/UserHelpSupport";
+import SuperAdminMainDashboard from "./Components/Dashboard/SuperAdmin/SuperAdminMainDashboard";
+import Customers from "./Components/Dashboard/SuperAdmin/Customers";
+import RestaurantOwners from "./Components/Dashboard/SuperAdmin/RestaurantOwners";
+import DeliveryPartners from "./Components/Dashboard/SuperAdmin/DeliveryPartners";
+import RestaurantApprovals from "./Components/Dashboard/SuperAdmin/RestaurantApprovals";
+import RestaurantListings from "./Components/Dashboard/SuperAdmin/RestaurantListings";
+import LiveOrders from "./Components/Dashboard/SuperAdmin/LiveOrders";
+import AllOrders from "./Components/Dashboard/SuperAdmin/AllOrders";
+import DisputeManagement from "./Components/Dashboard/SuperAdmin/DisputeManagement";
 
 
 
@@ -96,7 +112,20 @@ function App() {
              
           </Route>
           {/*Super Admin dashboard */}
-          <Route path="/super-admin" element={<SuperAdminDashboard />} />
+          <Route path="/super-admin" element={<SuperAdminDashboard />} >
+           <Route index element={<SuperAdminMainDashboard/>} />
+             <Route path="customers" element={<Customers/>} />
+            <Route path="restaurant-owners" element={<RestaurantOwners/>} />
+             <Route path="delivery-partners" element={<DeliveryPartners/>} />
+             <Route path="restaurant-approvals" element={<RestaurantApprovals/>} />
+             <Route path="restaurant-listings" element={<RestaurantListings/>} />
+             <Route path="live-orders" element={<LiveOrders/>} />
+             <Route path="all-orders" element={<AllOrders/>} />
+              <Route path="dispute-management" element={<DisputeManagement/>} />
+
+
+
+          </Route>
           {/* User dashboard */}
           <Route path="/user" element={<UserDashboard />} >
           <Route index element={<UserMainDashboard/>} />
@@ -105,6 +134,13 @@ function App() {
             <Route path="live-tracking" element={<LiveTracking/>} />
             <Route path="userorder-history" element={<UserOrderHistory/>} />
             <Route path="favorites-wishlist" element={<FavoritesWishlist/>} />
+             <Route path="offers-coupons" element={<OffersCoupons/>} />
+              <Route path="profile" element={<Profile/>} />
+              <Route path="saved-addresses" element={<SavedAddresses/>} />
+              <Route path="payment-methods" element={<PaymentMethods/>} />
+               <Route path="rating-reviews" element={<RatingReviews/>} />
+                <Route path="refer-earn" element={<ReferEarn/>} />
+                <Route path="user-helpsupport" element={<UserHelpSupport/>} />
           </Route>
         </Routes>
       </BrowserRouter>

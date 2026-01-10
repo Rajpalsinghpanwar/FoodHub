@@ -46,22 +46,22 @@ export  const SIDEBAR_CONFIG = {
     {
       category: "Account",
       items: [
-        { name: "Profile", icon: User },
-        { name: "Saved Addresses", icon: MapPin },
-        { name: "Payment Methods", icon: CreditCard }
+        { name: "Profile", icon: User, path:"/user/profile" },
+        { name: "Saved Addresses", icon: MapPin, path:"/user/saved-addresses"},
+        { name: "Payment Methods", icon: CreditCard, path:"/user/payment-methods" }
       ]
     },
     {
       category: "Engagement",
       items: [
-        { name: "Ratings & Reviews", icon: MessageSquare },
-        { name: "Refer & Earn", icon: Megaphone }
+        { name: "Ratings & Reviews", icon: MessageSquare, path:"/user/rating-reviews" },
+        { name: "Refer & Earn", icon: Megaphone, path:"/user/refer-earn" }
       ]
     },
     {
       category: "Support & Settings",
       items: [
-        { name: "Help & Support", icon: HelpCircle },
+        { name: "Help & Support", icon: HelpCircle, path:"/user/user-helpsupport" },
         { name: "Logout", icon: LogOut }
       ]
     }
@@ -160,37 +160,37 @@ export  const SIDEBAR_CONFIG = {
   ADMIN: [
     {
       category: "Overview",
-      items: [{ name: "Admin Dashboard", icon: LayoutDashboard }]
+      items: [{ name: "Admin Dashboard", icon: LayoutDashboard, path:"/super-admin" }]
     },
     {
       category: "User Management",
       items: [
-        { name: "Customers", icon: Users },
-        { name: "Restaurant Owners", icon: Store },
-        { name: "Delivery Partners", icon: Truck }
+        { name: "Customers", icon: Users, path:"/super-admin/customers" },
+        { name: "Restaurant Owners", icon: Store, path:"/super-admin/restaurant-owners" },
+        { name: "Delivery Partners", icon: Truck, path:"/super-admin/delivery-partners" }
       ]
     },
     {
       category: "Restaurant Control",
       items: [
-        { name: "Restaurant Approvals", icon: ShieldCheck },
-        { name: "Restaurant Listings", icon: Store }
+        { name: "Restaurant Approvals", icon: ShieldCheck, path:"/super-admin/restaurant-approvals" },
+        { name: "Restaurant Listings", icon: Store, path:"/super-admin/restaurant-listings" }
       ]
     },
     {
       category: "Order Management",
       items: [
-        { name: "Live Orders", icon: Truck },
-        { name: "All Orders", icon: Receipt },
-        { name: "Dispute Management", icon: MessageSquare }
+        { name: "Live Orders", icon: Truck, path:"/super-admin/live-orders" },
+        { name: "All Orders", icon: Receipt, path:"/super-admin/all-orders" },
+        { name: "Dispute Management", icon: MessageSquare, path:"/super-admin/dispute-management" }
       ]
     },
     {
       category: "Support & Security",
       items: [
-        { name: "Support Tickets", icon: HelpCircle },
-        { name: "Admin Roles & Permissions", icon: ShieldCheck },
-        { name: "Logout", icon: LogOut }
+        { name: "Support Tickets", icon: HelpCircle, path:"/super-admin" },
+        { name: "Admin Roles & Permissions", icon: ShieldCheck, path:"/super-admin" },
+        { name: "Logout", icon: LogOut,  }
       ]
     }
   ]
