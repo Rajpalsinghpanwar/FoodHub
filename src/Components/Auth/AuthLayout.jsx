@@ -1,15 +1,20 @@
-import React from "react";
-import Signin from "./Signin";
+import React, { useState } from "react";
+import Login from "./Login";
 import Signup from "./Signup";
 
-function AuthLayout({ signInClicked }) {
+function AuthLayout({ isOpen, setIsOpen }) {
+  const [isLogin, setIsLogin] = useState(true);
+
+  if (!isOpen) return null;
+
   return (
-    <div
-      className={`h-screen flex
-       w-screen bg-black/50  justify-end absolute top-0 right-0 z-40 `}
-    >
-      <Signin />
-    </div>
+    <>
+      {isLogin ? (
+        <Login setIsLogin={setIsLogin} setIsOpen={setIsOpen} />
+      ) : (
+        <Signup setIsLogin={setIsLogin} setIsOpen={setIsOpen} />
+      )}
+    </>
   );
 }
 

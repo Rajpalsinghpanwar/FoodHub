@@ -24,7 +24,7 @@ function Home() {
     }
   }),[location];
 
-  const [signInclicked, setSignInClicked] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const indianCities = [
     "Mumbai",
     "Delhi",
@@ -430,8 +430,8 @@ function Home() {
   ];
   return (
     <div className="relative">
-      <Navbar setSignInClicked={setSignInClicked} />
-      {signInclicked && <AuthLayout setSignInClicked={setSignInClicked} />}
+      <Navbar setIsOpen={setIsOpen} />
+      {isOpen && <AuthLayout isOpen={isOpen} setIsOpen={setIsOpen} />}
 
       <Hero />
 
