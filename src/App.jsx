@@ -59,12 +59,6 @@ import LiveOrders from "./Components/Dashboard/SuperAdmin/LiveOrders";
 import AllOrders from "./Components/Dashboard/SuperAdmin/AllOrders";
 import DisputeManagement from "./Components/Dashboard/SuperAdmin/DisputeManagement";
 
-
-
-
-
-
-
 function App() {
   return (
     <>
@@ -98,49 +92,54 @@ function App() {
             <Route path="logout" element={<AdminLogout />} />
           </Route>
           {/* Driver dashboard */}
-          <Route path="/driver" element={<DriverDashboard />} >
-           <Route index element={<Dashboard/>} />
-           <Route path="availability-status" element={<AvailabilityStatus/>} />
-           <Route path="new-requests" element={<NewRequests/>} />
-           <Route path="active-deliveries" element={<ActiveDeliveries/>} />
-             <Route path="delivery-history" element={<DeliveryHistory/>} />
-              <Route path="earnings-overview" element={<EarningsOverview/>} />
-              <Route path="incentive-bonus" element={<IncentiveBonus/>} />
-              <Route path="payment-history" element={<PaymentHistory/>} />
-              <Route path="profile-documents" element={<ProfileDocuments/>} />
-              <Route path="vehicle-details" element={<VehicleDetails/>} />
-             
+          <Route path="/driver" element={<DriverDashboard />}>
+            <Route index element={<Dashboard />} />
+            <Route
+              path="availability-status"
+              element={<AvailabilityStatus />}
+            />
+            <Route path="new-requests" element={<NewRequests />} />
+            <Route path="active-deliveries" element={<ActiveDeliveries />} />
+            <Route path="delivery-history" element={<DeliveryHistory />} />
+            <Route path="earnings-overview" element={<EarningsOverview />} />
+            <Route path="incentive-bonus" element={<IncentiveBonus />} />
+            <Route path="payment-history" element={<PaymentHistory />} />
+            <Route path="profile-documents" element={<ProfileDocuments />} />
+            <Route path="vehicle-details" element={<VehicleDetails />} />
           </Route>
           {/*Super Admin dashboard */}
-          <Route path="/super-admin" element={<SuperAdminDashboard />} >
-           <Route index element={<SuperAdminMainDashboard/>} />
-             <Route path="customers" element={<Customers/>} />
-            <Route path="restaurant-owners" element={<RestaurantOwners/>} />
-             <Route path="delivery-partners" element={<DeliveryPartners/>} />
-             <Route path="restaurant-approvals" element={<RestaurantApprovals/>} />
-             <Route path="restaurant-listings" element={<RestaurantListings/>} />
-             <Route path="live-orders" element={<LiveOrders/>} />
-             <Route path="all-orders" element={<AllOrders/>} />
-              <Route path="dispute-management" element={<DisputeManagement/>} />
-
-
-
+          <Route path="/super-admin" element={<SuperAdminDashboard />}>
+            <Route index element={<SuperAdminMainDashboard />} />
+            <Route path="customers" element={<Customers />} />
+            <Route path="restaurant-owners" element={<RestaurantOwners />} />
+            <Route path="delivery-partners" element={<DeliveryPartners />} />
+            <Route
+              path="restaurant-approvals"
+              element={<RestaurantApprovals />}
+            />
+            <Route
+              path="restaurant-listings"
+              element={<RestaurantListings />}
+            />
+            <Route path="live-orders" element={<LiveOrders />} />
+            <Route path="all-orders" element={<AllOrders />} />
+            <Route path="dispute-management" element={<DisputeManagement />} />
           </Route>
           {/* User dashboard */}
-          <Route path="/user" element={<UserDashboard />} >
-          <Route index element={<UserMainDashboard/>} />
-           <Route path="my-cart" element={<MyCart/>} />
-            <Route path="my-orders" element={<MyOrders/>} />
-            <Route path="live-tracking" element={<LiveTracking/>} />
-            <Route path="userorder-history" element={<UserOrderHistory/>} />
-            <Route path="favorites-wishlist" element={<FavoritesWishlist/>} />
-             <Route path="offers-coupons" element={<OffersCoupons/>} />
-              <Route path="profile" element={<Profile/>} />
-              <Route path="saved-addresses" element={<SavedAddresses/>} />
-              <Route path="payment-methods" element={<PaymentMethods/>} />
-               <Route path="rating-reviews" element={<RatingReviews/>} />
-                <Route path="refer-earn" element={<ReferEarn/>} />
-                <Route path="user-helpsupport" element={<UserHelpSupport/>} />
+          <Route path="/user" element={<UserDashboard />}>
+            <Route index element={<UserMainDashboard />} />
+            <Route path="my-cart" element={<MyCart />} />
+            <Route path="my-orders" element={<MyOrders />} />
+            <Route path="live-tracking" element={<LiveTracking />} />
+            <Route path="userorder-history" element={<UserOrderHistory />} />
+            <Route path="favorites-wishlist" element={<FavoritesWishlist />} />
+            <Route path="offers-coupons" element={<OffersCoupons />} />
+            <Route path="profile" element={<Profile />} />
+            <Route path="saved-addresses" element={<SavedAddresses />} />
+            <Route path="payment-methods" element={<PaymentMethods />} />
+            <Route path="rating-reviews" element={<RatingReviews />} />
+            <Route path="refer-earn" element={<ReferEarn />} />
+            <Route path="user-helpsupport" element={<UserHelpSupport />} />
           </Route>
         </Routes>
       </BrowserRouter>

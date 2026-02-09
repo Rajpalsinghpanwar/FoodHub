@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { ImCross } from "react-icons/im";
 import { NavLink } from "react-router-dom";
+import axios from "axios";
 
 function Login({ setIsLogin, setIsOpen }) {
   const [activeField, setActiveField] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
 
   const [formData, setFormData] = useState({
-    phoneNo: "",
+    phone: "",
     password: "",
   });
 
@@ -17,24 +18,30 @@ function Login({ setIsLogin, setIsOpen }) {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
 
-    if (!formData.phoneNo || !formData.password) {
-      alert("Please enter phone number and password");
-      return;
-    }
+    axios
+      .post("http://localhost:3000/api/v1/user/login", formData)
+      .then((res) => {
+        console.log("login successfull", res.data);
+      })
 
-    console.log("Login Data:", formData);
+      .catch((err) => {
+        console.error(" login failed", err);
+      });
+    // if (!formData.phoneNo || !formData.password) {
+    //   alert("Please enter phone number and password");
+    //   return;
+    // }
+
+    // console.log("Login Data:", formData);
     setIsOpen(false);
   };
 
   return (
     <div className="w-2/5 min-h-screen fixed top-0 right-0 bg-white z-50 p-5 flex flex-col gap-4">
       {/* Close */}
-      <ImCross
-        className="cursor-pointer"
-        onClick={() => setIsOpen(false)}
-      />
+      <ImCross className="cursor-pointer" onClick={() => setIsOpen(false)} />
 
       {/* Header */}
       <div className="w-full flex justify-between items-start">
@@ -62,10 +69,10 @@ function Login({ setIsLogin, setIsOpen }) {
       {/* Form */}
       <form onSubmit={handleSubmit} className="flex flex-col gap-3 w-full">
         {/* Phone Number */}
-        {activeField !== "phoneNo" && !formData.phoneNo ? (
+        {activeField !== "phone" && !formData.phone ? (
           <span
             className="border border-gray-400 text-2xl text-gray-500 p-3 cursor-text"
-            onClick={() => setActiveField("phoneNo")}
+            onClick={() => setActiveField("phone")}
           >
             Phone Number
           </span>
@@ -74,14 +81,12 @@ function Login({ setIsLogin, setIsOpen }) {
             <label className="text-sm">Phone Number</label>
             <input
               type="tel"
-              name="phoneNo"
-              value={formData.phoneNo}
+              name="phone"
+              value={formData.phone}
               onChange={handleChange}
               autoFocus
               className="outline-none text-black"
-              onBlur={() =>
-                !formData.phoneNo && setActiveField(null)
-              }
+              onBlur={() => !formData.phone && setActiveField(null)}
             />
           </div>
         )}
@@ -103,9 +108,7 @@ function Login({ setIsLogin, setIsOpen }) {
               value={formData.password}
               onChange={handleChange}
               className="outline-none text-black pr-16"
-              onBlur={() =>
-                !formData.password && setActiveField(null)
-              }
+              onBlur={() => !formData.password && setActiveField(null)}
             />
 
             {/* Show / Hide */}

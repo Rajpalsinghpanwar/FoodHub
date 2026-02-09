@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import { ImCross } from "react-icons/im";
 import { NavLink } from "react-router-dom";
-
+import axios from "axios";
 function SignUp({ setIsLogin, setIsOpen }) {
   const [activeField, setActiveField] = useState(null);
   const [showReferral, setShowReferral] = useState(false);
 
   const [formData, setFormData] = useState({
-    phoneNo: "",
-    name: "",
+    phone: "",
+    username: "",
     email: "",
+    password: "",
     referral: "",
   });
 
@@ -19,14 +20,22 @@ function SignUp({ setIsLogin, setIsOpen }) {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    axios
+      .post("http://localhost:3000/api/v1/user/signup", formData)
+      .then((res) => {
+        console.log("signup successfull", res.data);
+      })
 
-    if (!formData.phoneNo || !formData.name || !formData.email) {
-      alert("Please fill all required fields");
-      return;
-    }
+      .catch((err) => {
+        console.error(" signup failed", err);
+      });
 
-    console.log("Signup Data:", formData);
+    // if (!formData.phoneNo || !formData.name || !formData.email) {
+    //   alert("Please fill all required fields");
+    //   return;
+    // }
+
+    // console.log("Signup Data:", formData);
     setIsOpen(false);
   };
 
@@ -59,10 +68,7 @@ function SignUp({ setIsLogin, setIsOpen }) {
   return (
     <div className="w-2/5 min-h-screen fixed top-0 right-0 bg-white z-50 p-5 flex flex-col gap-4">
       {/* Close */}
-      <ImCross
-        className="cursor-pointer"
-        onClick={() => setIsOpen(false)}
-      />
+      <ImCross className="cursor-pointer" onClick={() => setIsOpen(false)} />
 
       {/* Header */}
       <div className="w-full flex justify-between items-start">
@@ -89,11 +95,10 @@ function SignUp({ setIsLogin, setIsOpen }) {
 
       {/* Form */}
       <form onSubmit={handleSubmit} className="flex flex-col gap-3 w-full">
-        {renderField("Phone Number", "phoneNo", "tel")}
-        {renderField("Name", "name")}
+        {renderField("Phone Number", "phone", "tel")}
+        {renderField("Name", "username")}
         {renderField("Email", "email", "email")}
         {renderField("Password", "password", "password")}
-        
 
         {showReferral && renderField("Referral Code", "referral")}
 
