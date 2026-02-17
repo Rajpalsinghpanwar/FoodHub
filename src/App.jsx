@@ -58,6 +58,7 @@ import RestaurantListings from "./Components/Dashboard/SuperAdmin/RestaurantList
 import LiveOrders from "./Components/Dashboard/SuperAdmin/LiveOrders";
 import AllOrders from "./Components/Dashboard/SuperAdmin/AllOrders";
 import DisputeManagement from "./Components/Dashboard/SuperAdmin/DisputeManagement";
+import Counter from "./Components/Counter";
 
 function App() {
   return (
@@ -71,6 +72,7 @@ function App() {
           <Route path="/Restaurant" element={<Restaurant />} />
           <Route path="/collection/:id" element={<SpecificCollection />} />
           <Route path="/search" element={<SearchFoodandRestaurent />} />
+          <Route path="/count" element={<Counter />} />
           {/* Admin dashboard */}
           <Route path="/admin" element={<AdminDashboard />}>
             <Route index element={<MainDashboard />} />
