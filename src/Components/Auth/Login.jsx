@@ -1,46 +1,85 @@
 import React, { useState } from "react";
 import { ImCross } from "react-icons/im";
-import { NavLink } from "react-router-dom";
-import axios from "axios";
+import { NavLink, useNavigate } from "react-router-dom";
+import axiosInstance from "../../api/axiosInstance";
 
 function Login({ setIsLogin, setIsOpen }) {
   const [activeField, setActiveField] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const [formData, setFormData] = useState({
     phone: "",
     password: "",
   });
+  const navigate = useNavigate();
 
+  // Handle input change
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    // e.preventDefault();
+  // Handle submit
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
 
-    axios
-      .post("http://localhost:3000/api/v1/user/login", formData)
-      .then((res) => {
-        console.log("login successfull", res.data);
-      })
+    // Basic validation
+    if (!formData.phone || !formData.password) {
+      setError("Please enter phone number and password");
+      return;
+    }
 
-      .catch((err) => {
-        console.error(" login failed", err);
-      });
-    // if (!formData.phoneNo || !formData.password) {
-    //   alert("Please enter phone number and password");
-    //   return;
-    // }
+    try {
+      setLoading(true);
 
-    // console.log("Login Data:", formData);
-    setIsOpen(false);
+      const res = await axiosInstance.post("/user/login", formData);
+
+      console.log("Login successful:", res.data);
+
+      // Save token
+      if (res.data.token) {
+        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("auth", res.data.data);
+
+        if (res.data.data.role == "admin") {
+          navigate("/admin");
+        }
+
+       else if (res.data.data.role == "driver") {
+          navigate("/driver");
+        }
+
+        else if (res.data.data.role == "user") {
+          navigate("/user");
+        }
+
+        else if (res.data.data.role == "super-admin") {
+          navigate("/super-admin");
+        }
+
+        // Close modal
+        setIsOpen(false);
+
+        // Optional redirect
+       
+      } else {
+        setError(res.data?.message || "Login failed");
+      }
+    } catch (err) {
+      console.error("Login failed:", err.response?.data);
+
+      setError(err.response?.data?.message || "Something went wrong");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <div className="w-2/5 min-h-screen fixed top-0 right-0 bg-white z-50 p-5 flex flex-col gap-4">
-      {/* Close */}
+    <div className="w-2/5 min-h-screen fixed top-0 right-0 bg-white z-50 p-5 flex flex-col gap-4 shadow-lg">
+      {/* Close Button */}
       <ImCross className="cursor-pointer" onClick={() => setIsOpen(false)} />
 
       {/* Header */}
@@ -66,9 +105,16 @@ function Login({ setIsLogin, setIsOpen }) {
         />
       </div>
 
+      {/* Error Message */}
+      {error && (
+        <div className="text-red-600 text-sm bg-red-100 p-2 rounded">
+          {error}
+        </div>
+      )}
+
       {/* Form */}
       <form onSubmit={handleSubmit} className="flex flex-col gap-3 w-full">
-        {/* Phone Number */}
+        {/* Phone */}
         {activeField !== "phone" && !formData.phone ? (
           <span
             className="border border-gray-400 text-2xl text-gray-500 p-3 cursor-text"
@@ -110,8 +156,6 @@ function Login({ setIsLogin, setIsOpen }) {
               className="outline-none text-black pr-16"
               onBlur={() => !formData.password && setActiveField(null)}
             />
-
-            {/* Show / Hide */}
             <span
               onClick={() => setShowPassword(!showPassword)}
               className="absolute right-4 top-8 text-sm font-bold text-orange-600 cursor-pointer"
@@ -121,11 +165,13 @@ function Login({ setIsLogin, setIsOpen }) {
           </div>
         )}
 
+        {/* Button */}
         <button
           type="submit"
-          className="w-full bg-orange-600 text-white p-3 font-bold uppercase"
+          disabled={loading}
+          className="w-full bg-orange-600 text-white p-3 font-bold uppercase disabled:opacity-50"
         >
-          Login
+          {loading ? "Logging in..." : "Login"}
         </button>
 
         <p className="text-sm">
